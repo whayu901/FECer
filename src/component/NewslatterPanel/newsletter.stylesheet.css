@@ -3,9 +3,10 @@
   position: fixed;
   bottom: 0;
   max-width: 600px;
+  width: 100%;
   height: auto;
   min-height: 10px;
-  padding: 1rem .5rem;
+  padding: 1rem 2rem;
   background-color: rgba(0, 123, 193, .93);
   color: white;
 }
@@ -29,4 +30,38 @@
 .__nwl-body .__nwl-body-text {
   font-size: .9rem;
   margin-bottom: 1rem;
+}
+
+.__input-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.__input-group.__inline-input {
+  flex-direction: row;
+  align-items: center;
+}
+
+.__input-group.__inline-input .__input-wrapper,
+.__input-group.__inline-input .__input-wrapper .__input {
+  border-radius: 2px;
+}
+
+.__input-group.__inline-input .__input-wrapper {
+  flex-grow: 1;
+  margin-right: 10px;
+  margin-bottom: 1rem;
+  background-color: red;
+}
+
+.__input-group.__inline-input .__input-wrapper .__input {
+  border: none;
+  outline: none;
+  color: rgba(0, 0, 0, .75);
+}
+
+.__input-group.__inline-input .__input-wrapper .__input {
+  padding: 10px .5rem;
+  font-size: 1rem;
+  width: 100%;
 }
