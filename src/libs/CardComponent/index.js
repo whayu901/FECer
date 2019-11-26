@@ -5,7 +5,6 @@ import './index.css'
 const style = {
   card: {
     display: 'block',
-    padding: '12px 15px'
   },
   title: {
     display: 'flex',
@@ -34,11 +33,13 @@ const Card = ({
         {title ? <h3 className="__title">{title}</h3> : null}
         {icon ? <span className="__withIcon">{icon}</span> : null}
       </div>
-      <div>
+      <div className="__card-body">
         {children
-          ? <div>{children}</div>
+          ? children
           : body
-            ? <div className="__text-body">{body}</div>
+            ? <div className="__card-body">
+                <div className="__text-body">{body}</div>
+              </div>
             : null
         }
       </div>

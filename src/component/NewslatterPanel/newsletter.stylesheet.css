@@ -1,0 +1,32 @@
+.__nwl-w {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  max-width: 600px;
+  height: auto;
+  min-height: 10px;
+  padding: 1rem .5rem;
+  background-color: rgba(0, 123, 193, .93);
+  color: white;
+}
+
+.__close-this-panel {
+  display: inline-block;
+  width: 20px;
+  cursor: pointer;
+}
+
+.__nwl-w .__nwl-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.__nwl-w .__nwl-title > .__close-this-panel {
+  margin-left: auto;
+}
+
+.__nwl-body .__nwl-body-text {
+  font-size: .9rem;
+  margin-bottom: 1rem;
+}
