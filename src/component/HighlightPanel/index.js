@@ -49,6 +49,7 @@ const HighlightPanel = () => {
                 title={c.title}
                 icon={utils.setIcon(c.icon, 22, '#cacaca')}
                 body={c.description}
+                isDefault
               />
             </div>
           ) :
