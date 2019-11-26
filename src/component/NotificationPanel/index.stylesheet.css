@@ -1,6 +1,7 @@
 
 .__notification-wrapper {
   position: fixed;
+  top: 0;
   display: block;
   width: 100%;
   background-color: var(--smoke-grey);

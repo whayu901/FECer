@@ -6,13 +6,21 @@ import HighlightPanel from './HighlightPanel'
 import Footer from './Footer'
 import NewsLetter from './NewslatterPanel'
 
-const AppMain = () =>
-  <div className="__wrapper">
-    <NotificationPanel />
-    <HeroShot />
-    <HighlightPanel />
-    <Footer />
-    <NewsLetter />
-  </div>
+const AppMain = () => {
+  const [visible, setVisible] = React.useState(true)
+  const handleNotification = () => setVisible(false)
+  return (
+    <div className="__wrapper">
+      <NotificationPanel
+        visibility={visible}
+        clicked={handleNotification} />
+      <HeroShot
+        eventHandling={visible} />
+      <HighlightPanel />
+      <Footer />
+      <NewsLetter />
+    </div>
+  )
+}
 
 export default AppMain

@@ -1,10 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import CermatiLogo from '../../asset/img/cermati-logo.png'
 import './index.stylesheet.css'
 
-const HeroShot = props => {
+const HeroShot = ({ eventHandling }) => {
   return (
-    <div className="__wrHs1">
+    <div className={`__wrHs1${!eventHandling ? ' __fullwidth' : ''}`}>
       <div className="__bg-w1" />
+      <div className="__logo-wrapper">
+        <div className="__logo">
+          <img src={CermatiLogo} alt="Cermati Logo" className="__image-logo" />
+        </div>
+      </div>
       <div className="__bx-wr1">
         <div className="__c-1t">
           Hello! I'm Adi Hermawan
@@ -32,3 +39,7 @@ const HeroShot = props => {
 }
 
 export default HeroShot
+
+HeroShot.propTypes = {
+  eventHandling: PropTypes.bool.isRequired
+}
