@@ -3,7 +3,29 @@ import Card from '../../libs/CardComponent'
 import './newsletter.stylesheet.css'
 
 const NewsLetter = () => {
+  const storage = window.localStorage
   const [input, setInput] = React.useState('')
+  const [hide, setHide] = React.useState(true)
+  const node = React.useRef()
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+
+      const yScroll = window.scrollY
+      const panelConfig = JSON.parse(storage.getItem('panel'))
+      const now = new Date()
+      const minutes = now.setMinutes(now.getMinutes())
+
+      if (!panelConfig) {
+        if (yScroll > 896) setHide(h => h = false)
+      } else if (panelConfig && (minutes > panelConfig.expired)) {
+        storage.clear()
+        if (yScroll > 896) setHide(h => h = false)
+      } else if (panelConfig && panelConfig.subscribe) {
+        setHide(h => h = true)
+      }
+    })
+  }, [setHide, storage])
 
   const handleOnChange = e => setInput(e.target.value)
 
@@ -13,11 +35,31 @@ const NewsLetter = () => {
   }
 
   const closeNewsletterPanel = () => {
-    console.log('✅ Click on close button...')
+    console.group('🚀  Execution Script...')
+
+    const now = new Date()
+    const expired = now.setMinutes(now.getMinutes() + 10)
+
+    const config = {
+      closed: hide,
+      subscribe: false,
+      expired
+    }
+
+    setHide(true)
+    console.log('Close panel... ✅')
+
+    storage.setItem('panel', JSON.stringify(config))
+    console.log('Set panel setting in local storage... ✅')
+    console.groupEnd()
   }
+
   return (
     <React.Fragment>
-      <div className="__nwl-w">
+      <div
+        id="__nwl-wID"
+        className={hide ? `__nwl-w` : `__nwl-w __show`}
+        ref={node}>
         <Card>
           <div className="__nwl-title">
             <div
