@@ -96,9 +96,9 @@ const NewsLetter = () => {
                     onChange={handleOnChange}
                     required />
                 </div>
-                <div style={{ marginBottom: '1rem' }}>
+                <div style={{ marginBottom: '1rem' }} className="__mobile">
                   <button
-                    className="__btn __btn-inline __bg-orange">
+                    className="__btn __btn-inline __bg-orange _btn-block-xs">
                     Count me in
                   </button>
                 </div>

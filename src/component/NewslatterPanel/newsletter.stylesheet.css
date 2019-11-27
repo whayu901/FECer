@@ -69,3 +69,13 @@
   font-size: 1rem;
   width: 100%;
 }
+
+@media only screen and (max-width: 768px) {
+  .__mobile {
+    width: 100%;
+  }
+  ._btn-block-xs {
+    display: block !important;
+    width: 100%;
+  }
+}
