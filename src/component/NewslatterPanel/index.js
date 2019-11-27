@@ -17,7 +17,7 @@ const NewsLetter = () => {
       const panelConfig = JSON.parse(storage.getItem('panel'))
       const now = new Date()
       const minutes = now.setMinutes(now.getMinutes())
-      
+
       if (!panelConfig) {
         if (yScroll > pOffset) {
           setHide(h => h = false)
