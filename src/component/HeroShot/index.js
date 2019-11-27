@@ -1,11 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import CermatiLogo from '../../asset/img/cermati-logo.png'
 import './index.stylesheet.css'
 
-const HeroShot = ({ eventHandling }) => {
+const HeroShot = () => {
   return (
-    <div className={`__wrHs1${!eventHandling ? ' __fullwidth' : ''}`}>
+    <div className="__wrHs1">
       <div className="__bg-w1" />
       <div className="__logo-wrapper">
         <div className="__logo">
@@ -39,7 +38,3 @@ const HeroShot = ({ eventHandling }) => {
 }
 
 export default HeroShot
-
-HeroShot.propTypes = {
-  eventHandling: PropTypes.bool.isRequired
-}

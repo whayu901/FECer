@@ -1,7 +1,6 @@
 .__nwl-w {
   display: block;
   position: fixed;
-  bottom: -226px;
   max-width: 600px;
   width: 100%;
   height: auto;
@@ -9,11 +8,11 @@
   padding: 1rem 2rem;
   background-color: rgba(0, 123, 193, .93);
   color: white;
-  transition: all 200ms ease-out;
+  transition: all 400ms ease-out;
 }
 
 .__show {
-  transform: translateY(-226px);
+  /*transform: translateY(100%);*/
 }
 
 .__close-this-panel {

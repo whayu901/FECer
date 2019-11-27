@@ -4,10 +4,22 @@ import './index.stylesheet.css'
 
 const NotificationPanel = ({ clicked, visibility }) => {
 
+  const [height, setHeight] = React.useState()
+
+  React.useEffect(() => {
+    const elnotif = document.getElementById('__notification-panel-id')
+    if (visibility) {
+      setHeight(elnotif.scrollHeight)
+    } else {
+      setHeight(0)
+    }
+  }, [visibility, setHeight])
+
   return (
     <div
       id="__notification-panel-id"
-      className={`__notification-wrapper${!visibility ? ' __hide-panel' : ''}`}>
+      style={{ maxHeight: `${height}` }}
+      className={`__notification-wrapper`}>
       <div className="__nw">
         <div className="__p1">
           By accessing and using this website, you acknowledge that you have read and understand our

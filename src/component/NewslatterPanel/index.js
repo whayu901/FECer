@@ -6,26 +6,35 @@ const NewsLetter = () => {
   const storage = window.localStorage
   const [input, setInput] = React.useState('')
   const [hide, setHide] = React.useState(true)
+  const [yTranslate, setYTranslate] = React.useState('')
   const node = React.useRef()
 
   React.useEffect(() => {
     window.addEventListener('scroll', () => {
 
-      const yScroll = window.scrollY
+      const yScroll = window.innerHeight + document.documentElement.scrollTop
+      const pOffset = document.documentElement.offsetHeight - 100
       const panelConfig = JSON.parse(storage.getItem('panel'))
       const now = new Date()
       const minutes = now.setMinutes(now.getMinutes())
-
+      
       if (!panelConfig) {
-        if (yScroll > 896) setHide(h => h = false)
+        if (yScroll > pOffset) {
+          setHide(h => h = false)
+          setYTranslate(`-${node.current.scrollHeight}`)
+        }
       } else if (panelConfig && (minutes > panelConfig.expired)) {
         storage.clear()
-        if (yScroll > 896) setHide(h => h = false)
+        if (yScroll > pOffset) {
+          setHide(h => h = false)
+          setYTranslate(`-${node.current.scrollHeight}`)
+        }
       } else if (panelConfig && panelConfig.subscribe) {
         setHide(h => h = true)
+        setYTranslate(`${node.current.scrollHeight}`)
       }
     })
-  }, [setHide, storage])
+  }, [setHide, storage, setYTranslate])
 
   const handleOnChange = e => setInput(e.target.value)
 
@@ -47,6 +56,7 @@ const NewsLetter = () => {
     }
 
     setHide(true)
+    setYTranslate(`${node.current.scrollHeight}`)
     console.log('Close panel... ✅')
 
     storage.setItem('panel', JSON.stringify(config))
@@ -58,7 +68,8 @@ const NewsLetter = () => {
     <React.Fragment>
       <div
         id="__nwl-wID"
-        className={hide ? `__nwl-w` : `__nwl-w __show`}
+        className="__nwl-w"
+        style={{ transform: `translateY(${yTranslate}px)`, bottom: `-${node.current && node.current.scrollHeight}px` }}
         ref={node}>
         <Card>
           <div className="__nwl-title">
