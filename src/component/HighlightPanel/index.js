@@ -14,19 +14,19 @@ const HighlightPanel = () => {
     const response = await fetch('https://www.mocky.io/v2/5dda42c932000094009a88e4')
     if (response.ok) {
       return response.json()
-      .then(result => result)
-      .catch(err => err)
+        .then(result => result)
+        .catch(err => err)
     }
   }
 
   React.useEffect(() => {
     fetchData()
-    .then(result => setContent(prevContent => {
-      return { ...prevContent, isLoaded: true, data: result }
-    }))
-    .catch(err => setContent(prevContent => {
-      return { ...prevContent, isLoaded: true, isError: err }
-    }))
+      .then(result => setContent(prevContent => {
+        return { ...prevContent, isLoaded: true, data: result }
+      }))
+      .catch(err => setContent(prevContent => {
+        return { ...prevContent, isLoaded: true, isError: err }
+      }))
   }, [setContent])
 
   return (

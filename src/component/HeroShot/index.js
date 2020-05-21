@@ -13,7 +13,7 @@ const HeroShot = () => {
       </div>
       <div className="__bx-wr1">
         <div className="__c-1t">
-          Hello! I'm Adi Hermawan
+          Hello! I'm Wahyu setiawan
         </div>
         <div className="__c-1st">
           Consult, Design, and Develop Website

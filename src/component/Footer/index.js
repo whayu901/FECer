@@ -17,7 +17,7 @@ const style = {
 
 const Footer = () =>
   <div style={style.footerWrapper}>
-    <div style={style.footerContent}><span role="img" aria-label="copyright">©️</span> 2019 Adi Hermawan. All rights reserved.</div>
+    <div style={style.footerContent}><span role="img" aria-label="copyright">©️</span> 2020 Wahyu setiawan. All rights reserved.</div>
   </div>
 
 export default Footer
