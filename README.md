@@ -8,15 +8,13 @@ Untuk menjalankan aplikasi ini di local bisa dengan meng-clone repository
 ```
 cd your-folder
 
-git clone https://github.com/skinnyguy/cermati-test.git
+git clone https://github.com/whayu901/FECer.git
 
 yarn install
 
 yarn start
 ```
 
-Atau bisa juga dengan mengunjungi link [https://skinnyguy.github.io/cermati-test](https://skinnyguy.github.io/cermati
--test)
 
 ### TODO
 Aplikasi ini dibuat sesuai dengan arahan dari tim cermati.
